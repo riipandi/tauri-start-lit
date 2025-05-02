@@ -2,14 +2,16 @@ import { fn } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 import '#/components/button'
-import type { ButtonProps } from '#/components/button'
 
-interface ButtonStoryProps extends ButtonProps {
+interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'danger'
+  size?: 'small' | 'medium' | 'large'
   label?: string
+  disabled?: boolean
   onClick?: () => void
 }
 
-const Button = ({ variant, size, label, disabled, onClick }: ButtonStoryProps) => {
+const Button = ({ variant, size, label, disabled, onClick }: ButtonProps) => {
   return html`
     <my-button
       variant=${variant || 'primary'}

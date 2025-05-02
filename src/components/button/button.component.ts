@@ -4,16 +4,15 @@ import { classMap } from 'lit/directives/class-map.js'
 import { buttonStyles } from './button.styles'
 
 export type ButtonProps = {
-  variant?: 'primary' | 'secondary' | 'danger'
-  size?: 'small' | 'medium' | 'large'
-  disabled?: boolean
+  variant: 'primary' | 'secondary' | 'danger'
+  size: 'small' | 'medium' | 'large'
 }
 
 @customElement('my-button')
 export class MyButton extends LitElement {
   @property({ type: String }) variant: ButtonProps['variant'] = 'primary'
   @property({ type: String }) size: ButtonProps['size'] = 'medium'
-  @property({ type: Boolean }) disabled: ButtonProps['disabled'] = false
+  @property({ type: Boolean }) disabled = false
 
   private _handleClick(e: Event) {
     if (this.disabled) {
